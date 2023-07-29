@@ -772,7 +772,14 @@ class Agent {
 
     coneVision(input) {
         const rays = params.AGENT_VISION_RAYS - 1;
-        const angle = params.AGENT_VISION_ANGLE * Math.PI / 180;
+
+        let angle = 180 * Math.PI / 180; //Default angle is 180 degrees
+         if (this.foodHierarchyIndex === 0) {
+            angle = params.AGENT_PREY_VISION_ANGLE * Math.PI / 180;
+         } else {
+            angle = params.AGENT_PREDATOR_VISION_ANGLE * Math.PI / 180;
+         }
+
         const angleBetw = angle / rays;
 
         let currAngle = this.heading - angle / 2;
