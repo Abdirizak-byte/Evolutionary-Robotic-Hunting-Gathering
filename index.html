@@ -313,8 +313,19 @@
                 Vision Rays: <input type="text" id="agent_vision_rays" value="13">
             </div>
 
-            <div>
+            <div id="single_agent_vision_angle_view" style="visibility: hidden;">
                 Vision Cone Angle (degrees): <input type="text" id="agent_vision_angle" value="180">
+            </div>
+
+            <div id="multi_agent_vision_angle_view">
+                <br>
+                <label>(Requires Food Hierarchy Index Parameter Enabled)</label>
+                <div>
+                    Vision Cone Angle for Prey (degrees): <input type="text" id="agent_prey_vision_angle" value="180">
+                </div>
+                <div>
+                    Vision Cone Angle for Predators (degrees): <input type="text" id="agent_predator_vision_angle" value="180">
+                </div>
             </div>
             <br>
         </div>
