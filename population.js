@@ -222,13 +222,27 @@ class PopulationManager {
         //Update hunting mode
         params.HUNTING_MODE = document.getElementById("huntingMode").value;
         if (params.HUNTING_MODE === "deactivated") {
+            console.log("DEACTIVATED HUNTING MODE");
             //params.HUNTING_MODE = false;
             document.getElementById("prey_speed").disabled = true;
             document.getElementById("predator_speed").disabled = true;
             document.getElementById("inactive_prey_targetable").disabled = true;
             document.getElementById("push_fhi_to_ann").disabled = true;
+            document.getElementById("multi_agent_vision_angle_view").style.visibility = 'hidden';
         }
         else if (params.HUNTING_MODE === "hierarchy" || params.HUNTING_MODE === "hierarchy_spectrum") {
+            console.log("HIERARCHY OR SPECTRUM HUNTING MODE");
+            if(params.HUNTING_MODE === "hierarchy") {
+                console.log("HIERARCHY HUNTING MODE");
+                document.getElementById("multi_agent_vision_angle_view").style.visibility = 'visible';
+                document.getElementById("single_agent_vision_angle_view").style.visibility = 'hidden';
+            } else {
+                console.log("HIERARCHY SPECTRUM HUNTING MODE");
+                document.getElementById("multi_agent_vision_angle_view").style.visibility = 'hidden';
+                document.getElementById("single_agent_vision_angle_view").style.visibility = 'visible';
+            }
+
+                
 
             params.SPLIT_SPECIES = false;
             document.getElementById("split_species").checked = false;
