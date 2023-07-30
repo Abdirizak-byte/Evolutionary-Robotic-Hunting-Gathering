@@ -27,7 +27,7 @@ bounds = {
     'avgPercDead': [0, 0],
     'totalFoodConsumptionCount': [0, 0],
     'avgPredWinnerBonus': [0, 0],
-    'totalCaloriesConsumedAsPrey': [0, 0],
+    '': [0, 0],
 }
 
 def determineMax(curr):
