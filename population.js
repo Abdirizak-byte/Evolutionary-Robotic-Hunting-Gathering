@@ -1363,10 +1363,14 @@ class PopulationManager {
 
 
             let data = {};
-            let consumptionData = this.foodTracker.getConsumptionData();
-            consumptionData = consumptionData.slice(0, consumptionData.length - 1);
-            data.consumption = consumptionData;
+
+            //For recording consumption data
+            // let consumptionData = this.foodTracker.getConsumptionData();
+            // consumptionData = consumptionData.slice(0, consumptionData.length - 1);
+            // data.consumption = consumptionData;
+
             agentTrackerAttributesToCollect.forEach((attribute) => {
+                //console.log(a);
                 let newCollection = this.agentTracker.getAgentTrackerAttributesAsList(attribute);
                 newCollection = newCollection.slice(0, newCollection.length - 1);
                 data[attribute] = newCollection;

@@ -303,6 +303,9 @@ const logData = (data, dataBase, dbCollection, extraElements = false) => {
             ...extraElements
         }
     }
+
+    data["angle"] = params.AGENT_PREY_VISION_ANGLE;
+
     let payload = {
         db: dataBase,
         collection: dbCollection,

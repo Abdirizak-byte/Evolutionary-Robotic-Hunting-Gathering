@@ -6,7 +6,10 @@ if (window.io) {
 }
 
 socket.on("find", (data) => {
-    console.log("processing query...");
+    console.log("Data received from socket");
+    console.log("Data = ");
+    console.log(data);
+    console.log("processing data...")
     if(data.length == 0) {
         console.warn("Warning: data collection queried is empty");
         console.warn(data);
@@ -33,7 +36,7 @@ const downloadData = (e) => {
         db: db, 
         collection: db_collection
     });
-    console.log("Download successfully");
+    console.log("Find query sent out.");
 }
 
 const downloadGenomes = () => {
@@ -95,21 +98,34 @@ const serializeData = (data, key, avgColumn = false) => {
     let j = 0;
     let foundRow = true;
     do{
-        if(j == 0){
+        if(j == 0){ //Row for recording Trial number
             for(let i = 0; i < data.length; i++){
                 str += "Trial " + (i+1);
+                
                 if(i+1 < data.length) str += ",";
             }
             if(avgColumn) str+= ",Average";
             str += "\n";
             j++;
-        }else{
+        }else if(j == 1) { //Row for recording angle
+            for(let i = 0; i < data.length; i++){
+
+                if (data[i]["angle"]) {
+                    str += " Prey Angle: " + data[i]["angle"];
+                }
+                
+                if(i+1 < data.length) str += ",";
+            }
+            str += "\n";
+            j++;
+        
+        }else{ //Rows for recording data
             foundRow = false;
             ds = "";
             let total = 0;
             for(let i = 0; i < data.length; i++) {
-                if(j < data[i][key].length){
-                    let v = data[i][key][j];
+                if(j - 2 < data[i][key].length){
+                    let v = data[i][key][j - 2];
                     ds += v;
                     total += v;
                     foundRow = true;
