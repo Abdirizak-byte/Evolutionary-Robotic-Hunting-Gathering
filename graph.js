@@ -66,7 +66,7 @@ const parseData = (data) => {
     // });
 
     //Only download these for conveniency
-    download("totalCaloriesConsumedAsPrey_" + db + "_" + db_collection + ".csv", serializeData(data, "totalCaloriesConsumedAsPrey", true));
+    download("totalCaloriesConsumedAsPrey_" + db + "-" + db_collection + ".csv", serializeData(data, "totalCaloriesConsumedAsPrey", true));
     //download("totalFoodConsumptionCount_" + db + "-" + db_collection + ".csv", serializeData(data, "totalFoodConsumptionCount", true));
     download("totalPreyHuntedCount_" + db + "-" + db_collection + ".csv", serializeData(data, "totalPreyHuntedCount", true));
     //download("totalTicksOutOfBounds_" + db + "-" + db_collection + ".csv", serializeData(data, "totalTicksOutOfBounds", true));
